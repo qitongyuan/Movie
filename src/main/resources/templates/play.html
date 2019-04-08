@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>影片播放</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css" data-filtered="filtered">
+    <link rel="stylesheet" href="/css/video.css">
+    <link rel="stylesheet" href="/layui/css/layui.css">
+</head>
+<body>
+<nav class="ui secondary pointing menu v-padded-top-bottom-small" style="background-color: rgba(136,194,93,0.94);height: 54px!important;">
+    <div class="ui container">
+        <a href="/video/listshow" class=" item m-mobile-hide v-padded-top-large head-title"><i class="book icon"></i>列表</a>
+        <a href="/video/sort" class=" item m-mobile-hide v-padded-top-large head-title"><i class="tag icon"></i>分类</a>
+        <a href="/video/forum" class=" item m-mobile-hide v-padded-top-large head-title"><i class="comment outline icon"></i>讨论</a>
+    </div>
+</nav>
+<div class="ui container">
+    <div class="video" style="width: 100%!important;height: 600px!important;"></div>
+    <div class="ui top attached segment">
+        <span class="list-font">如若不能播放，请联系管理员！！</span>
+    </div>
+</div>
+<input type="hidden" id="playurl" value="${(playurl)!}">
+<!--<input type="button" value="播放" onclick="player.videoPlay()">-->
+
+<script src="/js/jquery-3.2.1.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js" data-filtered="filtered"></script>
+<script type="text/javascript" src="/ck/ckplayer/ckplayer.js"></script>
+<script type="text/javascript" src="/js/play.js"></script>
+</body>
+</html>

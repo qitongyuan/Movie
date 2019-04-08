@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pc.Dao.SourceMapper">
+    <insert id="insertSource" parameterType="com.pc.Domain.Source">
+        INSERT INTO t_source(source_name,source_url,channel_id)
+        VALUES (#{SourceName},#{SourceUrl},#{ChannelId})
+    </insert>
+
+    <insert id="insertMovieCotent" parameterType="com.pc.Domain.Movie">
+        INSERT INTO t_movie(channel_id,movie_name,movie_content,movie_picture,play_url,movie_direct,movie_actors,movie_time,played_count,is_recommend)
+        VALUES (#{ChannelId},#{MovieName},#{MovieContent},#{MoviePicture},#{PlayUrl},#{MovieDirector},#{MovieActors},#{MovieTime},#{PlayedCount},#{IsRecommend})
+    </insert>
+
+
+
+</mapper>

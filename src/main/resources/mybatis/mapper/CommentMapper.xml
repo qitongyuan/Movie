@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pc.Dao.CommentMapper">
+    <insert id="insertComment" parameterType="com.pc.Domain.Comment">
+        INSERT INTO t_comment(comment_nickname,comment_email,comment_content,comment_date,movie_id)
+        VALUES (#{CommentNickName},#{CommentEmail},#{CommentContent},#{CommentDate},#{MovieId})
+    </insert>
+
+
+
+
+</mapper>

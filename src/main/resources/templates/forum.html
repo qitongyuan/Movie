@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>电影列表</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css" data-filtered="filtered">
+    <link rel="stylesheet" href="/css/video.css">
+</head>
+<body>
+<nav class="ui secondary pointing menu v-padded-top-bottom-small" style="background-color: rgba(136,194,93,0.94);height: 54px!important;">
+    <div class="ui container">
+        <a href="/video/listshow" class=" item m-mobile-hide v-padded-top-large head-title"><i class="book icon"></i>列表</a>
+        <a href="/video/sort" class=" item m-mobile-hide v-padded-top-large head-title"><i class="tag icon"></i>分类</a>
+        <a href="/video/forum" class=" item m-mobile-hide v-padded-top-large head-title"><i class="comment outline icon"></i>讨论</a>
+    </div>
+</nav>
+<div class="v-container">
+    <div class="ui top attached rounded segment">
+        <h3 class="list-font">#热门话题#惊奇队长#</h3>
+    </div>
+    <div class="ui attached rounded segment v-padded-top-bottom">
+        <#list forums as f>
+        <div class="ui comments">
+
+            <div class="comment">
+                <a class="avatar">
+                    <img src="${f.avater}">
+                </a>
+                <div class="content">
+                    <a class="author">${(f.userName)!}</a>
+                    <div class="text">
+                        <p>${f.content}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!--<div class="comment">
+                <a class="avatar">
+                    <img src="https://picsum.photos/90/90?random">
+                </a>
+                <div class="content">
+                    <a class="author">王嘻嘻</a>
+                    <div class="text">
+                        <p>The hours, minutes and seconds stand as visible reminders that your effort put them all there. Preserve until your next run, when the watch lets you see how Impermanent your efforts are.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="comment">
+                <a class="avatar">
+                    <img src="https://picsum.photos/90/90?random">
+                </a>
+                <div class="content">
+                    <a class="author">王嘻嘻</a>
+                    <div class="text">
+                        <p>The hours, minutes and seconds stand as visible reminders that your effort put them all there. Preserve until your next run, when the watch lets you see how Impermanent your efforts are.</p>
+                    </div>
+                </div>
+            </div>-->
+        </div>
+        </#list>
+    </div>
+    <div class="ui attached rounded segment">
+        <form action="/video/foruminput" method="post" class="ui reply form">
+            <div class="field">
+                <textarea name="Content"></textarea>
+            </div>
+            <div class="ui action input">
+                <input type="text" name="userName" placeholder="姓名">
+                <button class="ui button">发帖</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="/js/jquery-3.2.1.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js" data-filtered="filtered"></script>
+<script src="/js/semantic.min.js"></script>
+</body>
+</html>

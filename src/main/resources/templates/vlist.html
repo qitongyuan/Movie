@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>电影列表</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css" data-filtered="filtered">
+    <link rel="stylesheet" href="/css/video.css">
+    <link rel="stylesheet" href="/layui/css/layui.css">
+</head>
+<body>
+<nav class="ui secondary pointing menu v-padded-top-bottom-small" style="background-color: rgba(136,194,93,0.94);height: 54px!important;">
+    <div class="ui container">
+        <a href="/video/listshow" class=" item m-mobile-hide v-padded-top-large head-title"><i class="book icon"></i>列表</a>
+        <a href="/video/sort" class=" item m-mobile-hide v-padded-top-large head-title"><i class="tag icon"></i>分类</a>
+        <a href="/video/forum" class=" item m-mobile-hide v-padded-top-large head-title"><i class="comment outline icon"></i>讨论</a>
+        <div class="right m-item item m-mobile-hide v-padded-top-large">
+            <div class="ui icon input" style="margin-bottom: -19px!important;">
+                <input id="keyword" type="text"  name="keyword" value="">
+                <button id="searchBtn" class="ui icon button">
+                    <i class="icon search"></i>
+                </button>
+
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="ui container">
+    <div class="ui top attached rounded segment v-padded-top-bottom">
+        <table class="ui celled padded table" >
+            <thead style="font-size: 17px;color: #070403;font-family: Microsoft YaHei;text-align: center;">
+            <tr><th class="single line">影片名</th>
+                <th>海报</th>
+                <!--<th>评分</th>-->
+                <th>演员</th>
+                <th>上映时间</th>
+                <th>观看次数</th>
+                <th>操作</th>
+            </tr></thead>
+            <tbody id="bodycontent" style="font-size: 17px;color: #686d55;font-family: Microsoft YaHei;">
+            <!--<tr>
+                <td>
+                    xxxxxxxxxxxxxxxxx
+                </td>
+                <td>
+                    xxxxxxxxxxxxxxxxx
+                </td>
+                &lt;!&ndash;<td>
+                    <div class="ui star rating" data-rating="3" data-max-rating="3"></div>
+                </td>&ndash;&gt;
+                <td>
+                    xxxxxxxxxxxxxxxxx
+                </td>
+               <td>
+                   xxxxxxxxxxxxxxxxx
+               </td>
+                <td>
+                    xxxxxxxxxxxxxxxxx
+                </td>
+                <td>
+                    xxxxxxxxxxxxxx
+                </td>
+            </tr>-->
+            </tbody>
+        </table>
+        <div id="pageNav"/>
+
+
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="/js/jquery-3.2.1.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js" data-filtered="filtered"></script>
+<!--<script src="/js/semantic.min.js"></script>-->
+<script src="/layui/layui.js"></script>
+<script src="/js/vlist.js"></script>
+</body>
+</html>

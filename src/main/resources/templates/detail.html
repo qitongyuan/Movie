@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>电影详情</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css" data-filtered="filtered">
+    <link rel="stylesheet" href="/css/video.css">
+</head>
+<body>
+<nav class="ui secondary pointing menu v-padded-top-bottom-small" style="background-color: rgba(136,194,93,0.94);height: 54px!important;">
+    <div class="ui container">
+        <a href="/video/listshow" class=" item m-mobile-hide v-padded-top-large head-title"><i class="book icon"></i>列表</a>
+        <a href="/video/sort" class=" item m-mobile-hide v-padded-top-large head-title"><i class="tag icon"></i>分类</a>
+        <a href="/video/forum" class=" item m-mobile-hide v-padded-top-large head-title"><i class="comment outline icon"></i>讨论</a>
+        <!--<div class="right m-item item m-mobile-hide v-padded-top-large">
+            <div class="ui icon input" style="margin-bottom: -19px!important;">
+                <form name="search" action="/video/findBykey">
+                    <input type="text" name="keyword" placeholder="搜索">
+                    <i onclick="document.forms['search'].submit()" class="search icon"></i>
+                </form>
+            </div>
+        </div>-->
+    </div>
+</nav>
+<div class="ui container">
+    <div class="ui top attached rounded segment v-padded-top-bottom">
+        <div class="ui two column grid">
+            <div class="column">
+                <a href="/video/play?ResourceID=${(movie.playUrl)!}89yu${(movie.movieId)!}" class="ui medium image">
+                    <img src="${(movie.moviePicture)!}">
+                </a>
+            </div>
+            <div class="column">
+                <div class="v-padded-top-bottom-small row">
+                    <h2>影片名：${(movie.movieName)!}</h2>
+                </div>
+                <div class="v-padded-top-bottom-small row">
+                    <h3>导演： ${(movie.movieDirector)!}</h3>
+                </div>
+                <div class="v-padded-top-bottom-small row">
+                    <h3>演员：${(movie.movieActors)!}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui attached rounded segment">
+        <div class="ui items">
+            <div class="item">
+                <div class="content">
+                    <a class="header">剧情大概</a>
+                    <div class="description">
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${(movie.movieContent)!}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui attached rounded segment">
+        <div class="ui items">
+            <div class="item">
+                <div class="content">
+                    <a class="header">猜你喜欢</a>
+                    <div class="description">
+                        <!--推荐内容-->
+                        <div class="ui five column grid">
+                            <#list commend as c>
+                                <div class="column">
+                                    <div class="ui fluid card">
+                                        <div class=" image">
+                                            <img src="${(c.moviePicture)!}">
+                                        </div>
+                                        <div class="content">
+                                            <a href="/video/detail?ResourceID=${(c.movieId)?replace(',', '')}" class="header">${(c.movieName)!}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </#list>
+                           <!-- <div class="column">
+                                <div class="ui fluid card">
+                                    <div class=" image">
+                                        <img src="https://pic.china-gif.com/pic/upload/vod/2018-11/154269035414.jpg">
+                                    </div>
+                                    <div class="content">
+                                        <a class="header">Helen Troy</a>
+                                    </div>
+                                </div>
+                            </div>-->
+                            <!--<div class="column">
+                                <div class="ui fluid card">
+                                    <div class=" image">
+                                        <img src="https://pic.china-gif.com/pic/upload/vod/2018-11/154269035414.jpg">
+                                    </div>
+                                    <div class="content">
+                                        <a class="header">Elliot Fu</a>
+                                    </div>
+                                </div>
+                            </div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js" data-filtered="filtered"></script>
+</body>
+</html>

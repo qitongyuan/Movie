@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pc.Dao.VideoMapper">
+
+    <resultMap id="Base_Column_List" type="com.pc.Domain.Movie">
+        <id column="movie_id" property="MovieId" jdbcType="INTEGER" />
+        <result column="channel_id" property="ChannelId" jdbcType="INTEGER" />
+        <result column="movie_name" property="MovieName" jdbcType="VARCHAR" />
+        <result column="movie_content" property="MovieContent" jdbcType="VARCHAR" />
+        <result column="movie_picture" property="MoviePicture" jdbcType="VARCHAR" />
+        <result column="play_url" property="PlayUrl" jdbcType="VARCHAR" />
+        <result column="movie_direct" property="MovieDirector" jdbcType="VARCHAR" />
+        <result column="movie_actors" property="MovieActors" jdbcType="VARCHAR" />
+        <result column="movie_time" property="MovieTime" jdbcType="VARCHAR" />
+        <result column="played_count" property="PlayedCount" jdbcType="INTEGER" />
+    </resultMap>
+    <resultMap id="Forum_Column_List" type="com.pc.Domain.Forum">
+        <id column="forum_id" property="forumID" jdbcType="INTEGER" />
+        <result column="user_name" property="userName" jdbcType="VARCHAR" />
+        <result column="content" property="Content" jdbcType="VARCHAR" />
+        <result column="avater" property="Avater" jdbcType="VARCHAR" />
+    </resultMap>
+
+<select id="findByPage" parameterType="string" resultMap="Base_Column_List">
+    SELECT
+    *
+    FROM t_movie
+    <if test="keyword!='all'">
+        WHERE movie_name LIKE  concat('%',#{keyword},'%')
+    </if>
+</select>
+
+    <select id="findAll" resultType="com.pc.Domain.Movie">
+        SELECT
+        *
+        FROM t_movie
+    </select>
+
+    <select id="countAll" resultType="int">
+        SELECT count(*) FROM t_movie
+        <if test="keyword!='all'">
+            WHERE movie_name LIKE  concat('%',#{keyword},'%')
+        </if>
+    </select>
+
+    <select id="findByType" resultType="Integer">
+        SELECT channel_id FROM t_channel
+    </select>
+
+    <select id="findByChannel" resultMap="Base_Column_List">
+        SELECT * FROM t_movie
+        WHERE channel_id=#{ID}
+        order by played_count desc
+        Limit 0,5
+    </select>
+
+    <update id="coutplus" parameterType="Integer">
+        UPDATE t_movie t
+        SET t.played_count=t.played_count+1
+        WHERE t.movie_id=#{movieID}
+    </update>
+
+    <select id="movieDetails" parameterType="Integer"  resultMap="Base_Column_List">
+        SELECT * FROM t_movie t
+        WHERE t.movie_id=#{movieID}
+    </select>
+
+    <select id="searchType" parameterType="Integer" resultType="Integer">
+        SELECT channel_id FROM t_movie WHERE movie_id=#{movieID}
+    </select>
+
+    <select id="searchMovies" parameterType="Integer" resultMap="Base_Column_List">
+        SELECT * FROM t_movie WHERE channel_id=#{channelId}
+        order by played_count desc
+        Limit 0,5
+    </select>
+
+    <insert id="insertForum" parameterType="com.pc.Domain.Forum">
+        INSERT INTO t_forum(user_name,content,avater)
+        VALUES (#{userName},#{Content},#{Avater})
+    </insert>
+
+    <select id="forumlist" resultMap="Forum_Column_List">
+        SELECT * FROM t_forum
+    </select>
+
+</mapper>

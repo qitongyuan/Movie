@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>电影列表</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css" data-filtered="filtered">
+    <link rel="stylesheet" href="/css/video.css">
+</head>
+<body>
+<nav class="ui secondary pointing menu v-padded-top-bottom-small" style="background-color: rgba(136,194,93,0.94);height: 54px!important;">
+    <div class="ui container">
+        <a href="/video/listshow" class=" item m-mobile-hide v-padded-top-large head-title"><i class="book icon"></i>列表</a>
+        <a href="/video/sort" class=" item m-mobile-hide v-padded-top-large head-title"><i class="tag icon"></i>分类</a>
+        <a href="/video/forum" class=" item m-mobile-hide v-padded-top-large head-title"><i class="comment outline icon"></i>讨论</a>
+        <!--<div class="right m-item item m-mobile-hide v-padded-top-large">
+            <div class="ui icon input" style="margin-bottom: -19px!important;">
+                <form name="search" action="/video/findBykey">
+                <input type="text" name="keyword" placeholder="搜索">
+                <i onclick="document.forms['search'].submit()" class="search icon"></i>
+                </form>
+            </div>
+        </div>-->
+    </div>
+</nav>
+<div class="ui container">
+            <div class="ui top attached rounded segment v-padded-top-bottom">
+                <div class="ui three column grid">
+
+                <#list map?keys as channel>
+                    <div class="column">
+                    <#if channel??>
+                        <#if channel=="1">
+                            <h3 class="ui green center aligned header">动作片</h3>
+                        </#if>
+                        <#if channel=="2">
+                            <h3 class="ui green center aligned header">喜剧片</h3>
+                        </#if>
+                        <#if channel=="3">
+                            <h3 class="ui green center aligned header">记录片</h3>
+                        </#if>
+                        <#if channel=="4">
+                            <h3 class="ui green center aligned header">爱情片</h3>
+                        </#if>
+                        <#if channel=="5">
+                            <h3 class="ui green center aligned header">科幻片</h3>
+                        </#if>
+                        <#if channel=="6">
+                            <h3 class="ui green center aligned header">战争片</h3>
+                        </#if>
+                    </#if>
+                    <#list map[channel] as m>
+                        <div class="ui  attached padded segment">
+                            <div class="ui middle aligned two column grid">
+                                <div class="column">
+                                    <a class="ui balck header" href='/video/play?ResourceID=${(m.playUrl)!}89yu${(m.movieId)!}'>${(m.movieName)!}</a>
+                                </div>
+                                <div class="right aligned column">
+                                    <div class="ui labeled button" tabindex="0">
+                                        <div class="ui green button">
+                                            <#if m.playedCount??>
+                                                <i class="eye icon"></i>${(m.playedCount)!}
+                                                <#else>
+                                                    <i class="eye icon"></i>0
+                                            </#if>
+                                        </div>
+                                        <a class="ui basic green left pointing label">
+                                            ${(m.movieTime)!}
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </#list>
+                    </div>
+                </#list>
+
+                <!--<div class="ui attached padded segment">
+                    <div class="ui middle aligned two column grid">
+                        <div class="column">
+                            <a class="ui black header">嘻哈望着</a>
+                        </div>
+                        <div class="right aligned column">
+                            <div class="ui labeled button" tabindex="0">
+                                <div class="ui green button">
+                                    <i class="heart icon"></i> 0
+                                </div>
+                                <a class="ui basic green left pointing label">
+                                    2019
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+            </div>
+                </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="../static/js/semantic.min.js"></script>
+</body>
+</html>
